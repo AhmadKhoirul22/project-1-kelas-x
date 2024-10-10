@@ -3,16 +3,16 @@ import statistics
 def hitung_rata_rata(data):
     rata_rata = statistics.mean(data)
     return rata_rata
+
 # soal 2
 def hitung_nilai_tengah(data):
     nilai_tengah = statistics.median(data)
     return nilai_tengah
+
 # soal 3
 def urutkan_data(data, ascending=True):
   data.sort(reverse=not ascending)
   return data
-
-# Contoh penggunaan:
 
 # soal 4
 def cari_nilai(a,b):
@@ -21,7 +21,7 @@ def cari_nilai(a,b):
     x = -b / a
     # kenapa bisa x = -b / a karena ax + b = 0, seperti pada soal
     return x
-# print(cari_nilai(a,b))
+
 # soal 7
 def cek_gempa(data):
     if(data <= 2):
@@ -40,8 +40,12 @@ def cek_gempa(data):
         print("utama")    
     elif(data >= 8):
         print("hebat")
-# cek - cek_gempa(data)
-# print(cek)
+
+# soal 19
+def theorema_pythagoras(a,b,c):
+     hasil = a**2 + b**2
+     return hasil == c**2
+
 # soal 20
 def tipe_segitiga(a,b,c):
     if a**2 + b**2 == c**2:
@@ -50,7 +54,7 @@ def tipe_segitiga(a,b,c):
         return "segitiga lancip"
     else:
         return "segitga tumpul"
-# print(tipe_segitiga(a,b,c))
+
 # soal 21
 def angka_ganjil(angka):
     ganjil = [angka for angka in angka if angka % 2 != 0]
@@ -62,21 +66,21 @@ print("2. menghitung nilai tengah")
 print("3. mengurutkan sebuah array dari ascending atau descending")
 print("4. mencari nilai a dan b")
 print("5. mengkategorikan gempa berdasarkan kekuatan skala richter")
-print("6. menentukan jenis segitiga berdasarkan panjang a, b dan c")
-print("7. mencari angka ganjil dari sebuah array")
-
+print("6. mencari c dengan theorema pythagoras")
+print("7. menentukan jenis segitiga berdasarkan panjang a, b dan c")
+print("8. mencari angka ganjil dari sebuah array")
 
 
 pilihan = int(input("masukan nomor fungsi yang akan dijalankan : "))
 if pilihan == 1:
     data = [9, 12, 3, 14, 7]
     hasil = hitung_rata_rata(data)
-    print("Rata-rata dari data", data, "adalah", hasil)
+    print("rata-rata dari data", data, "adalah", hasil)
     hitung_rata_rata(data)
 elif pilihan == 2:
     data = [9, 12, 3, 14, 7]
-    hasil = hitung_rata_rata(data)
-    print("Rata-rata dari data", data, "adalah", hasil)
+    hasil = hitung_nilai_tengah(data)
+    print("nilai tengah dari data", data, "adalah", hasil)
 elif pilihan == 3:
     data = [9, 12, 3, 14, 7]
     pilihan = int(input("Pilih asc (1) atau desc (2): "))
@@ -96,12 +100,18 @@ elif pilihan == 4:
 elif pilihan == 5:
     data = float(input("masukan skala richter : "))
     cek_gempa(data)
-elif(pilihan == 6):
+elif pilihan == 6:
+    a = float(input("masukan nilai a : "))
+    b = float(input("masukan nilai b : "))
+    c = float(input("masukan nilai c : "))
+    result = theorema_pythagoras(a,b,c)
+    print(result)
+elif pilihan == 7:
     a = int(input("masukan nilai a : "))
     b = int(input("masukan nilai b : "))
     c = int(input("masukan nilai c : "))
     tipe_segitiga(a,b,c)
-elif(pilihan == 7):
+elif pilihan == 8:
     angka = [1,2,3,4,5,6,7,8,9]
     print("array ",angka)
     hasil = angka_ganjil(angka)
