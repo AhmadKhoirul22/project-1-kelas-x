@@ -3,21 +3,17 @@ import statistics
 def hitung_rata_rata(data):
     rata_rata = statistics.mean(data)
     return rata_rata
-
-data = [9, 12, 3, 14, 7]
-hasil = hitung_rata_rata(data)
-print("Rata-rata dari data", data, "adalah", hasil)
 # soal 2
 def hitung_nilai_tengah(data):
     nilai_tengah = statistics.median(data)
     return nilai_tengah
-
-data = [9, 12, 3, 14, 7]
-hasil = hitung_rata_rata(data)
-print("Rata-rata dari data", data, "adalah", hasil)
 # soal 3
+def urutkan_data(data, ascending=True):
+  data.sort(reverse=not ascending)
+  return data
 
-    
+# Contoh penggunaan:
+
 # soal 4
 def cari_nilai(a,b):
     if a == 0:
@@ -60,27 +56,56 @@ def angka_ganjil(angka):
     ganjil = [angka for angka in angka if angka % 2 != 0]
     return ganjil
 
-angka = [1,2,3,4,5,6,7,8,9]
-hasil = angka_ganjil(angka)
-print(hasil)
-
 print("pilih fungsi yang ingin dijalankan")
-print("1. mencari nilai a dan b")
-print("2. cek data gempa")
-print("3. cek jenis segitiga")
+print("1. menghitung rata_rata")
+print("2. menghitung nilai tengah")
+print("3. mengurutkan sebuah array dari ascending atau descending")
+print("4. mencari nilai a dan b")
+print("5. mengkategorikan gempa berdasarkan kekuatan skala richter")
+print("6. menentukan jenis segitiga berdasarkan panjang a, b dan c")
+print("7. mencari angka ganjil dari sebuah array")
+
+
 
 pilihan = int(input("masukan nomor fungsi yang akan dijalankan : "))
 if pilihan == 1:
+    data = [9, 12, 3, 14, 7]
+    hasil = hitung_rata_rata(data)
+    print("Rata-rata dari data", data, "adalah", hasil)
+    hitung_rata_rata(data)
+elif pilihan == 2:
+    data = [9, 12, 3, 14, 7]
+    hasil = hitung_rata_rata(data)
+    print("Rata-rata dari data", data, "adalah", hasil)
+elif pilihan == 3:
+    data = [9, 12, 3, 14, 7]
+    pilihan = int(input("Pilih asc (1) atau desc (2): "))
+    if pilihan == 1:
+        print("array ",data)
+        hasil = urutkan_data(data)
+    elif pilihan == 2:
+        print("array ",data)
+        hasil = urutkan_data(data, ascending=False)
+    else:
+        print("Pilihan tidak valid.")
+    print(hasil)
+elif pilihan == 4:
     a = int(input("masukan nilai a : "))
     b = int(input("masukan nilai b : "))
     cari_nilai(a,b)
-elif pilihan == 2:
+elif pilihan == 5:
     data = float(input("masukan skala richter : "))
     cek_gempa(data)
-elif(pilihan == 3):
+elif(pilihan == 6):
     a = int(input("masukan nilai a : "))
     b = int(input("masukan nilai b : "))
     c = int(input("masukan nilai c : "))
     tipe_segitiga(a,b,c)
+elif(pilihan == 7):
+    angka = [1,2,3,4,5,6,7,8,9]
+    print("array ",angka)
+    hasil = angka_ganjil(angka)
+    print("angka ganjil dari array ",hasil)
+    angka_ganjil(angka)
 else:
     print("eror")
